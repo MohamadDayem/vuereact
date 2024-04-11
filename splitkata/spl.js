@@ -65,11 +65,33 @@ splice(index, num, ...obj) {
       }
       return true;
     }
-}
+
+
+
+
   
 
-  const myString = new MyString("Hello, world!");
+  //const myString = new MyString("Hello, world!");
   
-  console.log(myString.endsWith("world!")); 
-  console.log(myString.endsWith("world")); 
-  console.log(myString.endsWith("world!", 13))
+//  console.log(myString.endsWith("world!")); 
+  //console.log(myString.endsWith("world")); 
+  //console.log(myString.endsWith("world!", 13))
+
+//////////////////////////////////////////////////////////////////////////////////////////
+
+
+ includes(substring, position = 0) {
+    if (position < 0) {
+      position = Math.max(this.str.length + position, 0);
+    }
+    return this.str.indexOf(substring, position) !== -1;
+  }
+}
+
+const myStr = new MyString('Hello World');
+console.log(myStr.includes('Hello')); 
+console.log(myStr.includes('World')); 
+console.log(myStr.includes('lo')); 
+console.log(myStr.includes('lo', 3)); 
+console.log(myStr.includes('Goodbye')); 
+
