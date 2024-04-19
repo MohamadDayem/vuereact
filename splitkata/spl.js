@@ -94,8 +94,36 @@ class MyString {
 
   trim() {
     return this.trimStart().trimEnd();
+  }   
+
+  subString(start, end = null) {
+    if (
+      start === end ||
+      end === null ||
+      start < 0 ||
+      end < 0||
+      isNaN(start) ||
+      isNaN(end) 
+    )
+      return "";
+
+    if (end < start) {
+      let swap = start;
+      start = end;
+      end = swap;
+    }
+
+    let str = "";
+    for (let i = start; i < this.str.length && i < end; i++) {
+      str += this.str[i];
+    }
+    return str;
   }
+
 }
+
+
+
 
 
 //const myStr = new MyString('Hello World');
