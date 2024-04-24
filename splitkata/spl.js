@@ -120,9 +120,17 @@ class MyString {
     return str;
   }
 
+  concat(...strings) {
+    let newStr = this.str;
+    for (let i = 0; i < strings.length; i++) {
+      newStr += strings[i];
+    }
+    return newStr;
+  }
 }
 
-
+let myString = new MyString("Hello, ");
+console.log(myString.concat("world!", " Have a nice day!"));
 
 
 
