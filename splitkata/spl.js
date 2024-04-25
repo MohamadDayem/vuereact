@@ -127,10 +127,25 @@ class MyString {
     }
     return newStr;
   }
+
+  flatMap(callback) {
+    const flattened = [];
+    for (let values of this.tab) {
+      const result = callback(values);
+      if (Array.isArray(result)) {
+        for (let items of result) {
+          flattened[flattened.length] = items;
+        }
+      } else {
+        flattened[flattened.length] = result;
+      }
+    }
+    return flattened;
+  }
 }
 
-let myString = new MyString("Hello, ");
-console.log(myString.concat("world!", " Have a nice day!"));
+//let myString = new MyString("Hello, ");
+//console.log(myString.concat("world!", " Have a nice day!"));
 
 
 
