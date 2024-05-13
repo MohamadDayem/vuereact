@@ -142,6 +142,20 @@ class MyString {
     }
     return flattened;
   }
+
+
+  reduceRight(callback, initValue) {
+    let acc = initValue
+    let initIndex = this.tab.length - 1
+    if (initValue === undefined) {
+        acc = this.tab[this.tab.length - 1]
+        initIndex = this.tab.length - 2
+    }
+    for (let i = initIndex; i >= 0; i--) {
+        acc = callback(acc, this.tab[i], i, this.tab)
+    }
+    return acc
+}
 }
 
 //let myString = new MyString("Hello, ");
