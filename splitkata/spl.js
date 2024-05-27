@@ -158,6 +158,49 @@ class MyString {
 }
 }
 
+//e 
+//KATA :  Écrire une function qui renvoie true si une chaîne de caractères est un anagramme d'une autre chaîne de caractères, false sinon.
+
+
+function isAnagram(str1, str2) {
+  // Remove spaces and convert to lowercase
+  str1 = str1.replace(/\s+/g, '').toLowerCase();
+  str2 = str2.replace(/\s+/g, '').toLowerCase();
+  
+  // Sort the characters of both strings and compare
+  return str1.split('').sort().join('') === str2.split('').sort().join('');
+}
+
+// Examples
+console.log(isAnagram("listen", "silent"));  // true
+console.log(isAnagram("triangle", "integral"));  // true
+console.log(isAnagram("apple", "pale"));  // false
+
+
+//KATA :  Écrire une function qui renvoie true si une chaîne de caractères est un palindrome'une autre chaîne de caractères, false sinon.
+
+function estPalindrome(chaine) {
+  // Convertir la chaîne en minuscules pour éviter les problèmes de casse
+  chaine = chaine.toLowerCase();
+  // Comparer la chaîne originale avec sa version inversée
+  return chaine === chaine.split('').reverse().join('');
+}
+
+// Exemple d'utilisation
+let chaineTest = "radar";
+let resultat = estPalindrome(chaineTest);
+console.log(resultat); 
+
+// **KATA :** Écrire une fonction qui renvoie **true** si un nombre est premier, **false** sinon.
+
+
+
+
+
+
+//KATA : Écrire une fonction qui renvoie true si une chaîne de caractères est un pangramme, false sinon.
+
+
 //let myString = new MyString("Hello, ");
 //console.log(myString.concat("world!", " Have a nice day!"));
 
