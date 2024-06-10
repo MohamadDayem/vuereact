@@ -204,6 +204,49 @@ console.log(resultat);
 //let myString = new MyString("Hello, ");
 //console.log(myString.concat("world!", " Have a nice day!"));
 
+///////////////////////////////////////////////////////////////////////////////////////////
+
+//1-La première fonction morseToFrench prendra en argument une chaîne de caractères en code morse et renverra la traduction en français de cette 
+//chaîne.La chaîne de caractères en code 
+//morse sera composée de caractères morse (points et tirets), d'espaces pour séparer les lettres et de barres obliques / pour séparer les mots.
+//2- La deuxième fonction frenchToMorse prendra en argument une chaîne de caractères en français et renverra la traduction en code morse de cette chaîne.
+//3-Pour effectuer les conversions, vous pouvez utiliser un objet JavaScript qui contiendra les correspondances entre les caractères morse et français. 
+//Cet objet aura pour clés les caractères français lettres majuscules, chiffres et espace) et pour valeurs les caractères morse correspondants.
+
+
+
+
+
+
+
+
+
+
+
+const frenchToMorse = (str) => {
+  let morseStr = ''
+  const words = str.split(' ')
+  words.forEach((word, index) => {
+      const letters = word.split('')
+      const morseWord = letters.map(letter => morseCode[letter.toUpperCase()]).join(' ')
+      morseStr += morseWord + (index+1 === words.length ? '' : ' / ')
+  })
+  return morseStr
+}
+
+const morseToFrench = (morseStr) => {
+  return morseStr.split(' / ')
+      .map(word =>
+          word.split(' ')
+              .map(letter => Object
+                  .keys(morseCode)
+                  .find(key => morseCode[key] === letter))
+              .join('')
+      ).join(' ')
+}
+
+
+
 
 
 //const myStr = new MyString('Hello World');
