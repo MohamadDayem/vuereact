@@ -248,6 +248,34 @@ const morseToFrench = (morseStr) => {
 
 
 
+function longestCommonSubstring(X, Y) {
+  let maxLength = 0;
+  let endIndex = 0;
+
+  for (let i = 0; i < X.length; i++) {
+    for (let j = 0; j < Y.length; j++) {
+      let length = 0;
+
+      while (
+        i + length < X.length &&
+        j + length < Y.length &&
+        X[i + length] === Y[j + length]
+      ) {
+        length++;
+      }
+
+      if (length > maxLength) {
+        maxLength = length;
+        endIndex = i + length;
+      }
+    }
+  }
+  return X.slice(endIndex - maxLength, endIndex);
+}
+
+console.log(longestCommonSubstring("abcdefaze", "azeabcdef")); // abcdef
+
+
 
 //const myStr = new MyString('Hello World');
 //console.log(myStr.includes('Hello')); 
